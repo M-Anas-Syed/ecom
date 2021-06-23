@@ -25,8 +25,8 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-        <strong class="blue-text">MDB</strong>
+      <a class="navbar-brand waves-effect" href="{% url 'core:home' %}" >
+        <strong class="blue-text">Ecommerce</strong>
       </a>
 
       <!-- Collapse -->
@@ -41,16 +41,12 @@
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link waves-effect" href="{% url 'core:item-list' %}">Home</a>
+            <a class="nav-link waves-effect" href="{% url 'core:home' %}">Home</a>
           </li>
            <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'core:checkout' %}">Checkout</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url 'core:product' %}">Products
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
+         
         </ul>
 
         <!-- Right -->
@@ -60,22 +56,6 @@
               <span class="badge red z-depth-1 mr-1"> 1 </span>
               <i class="fas fa-shopping-cart"></i>
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"
-              target="_blank">
-              <i class="fab fa-github mr-2"></i>MDB GitHub
             </a>
           </li>
         </ul>
@@ -109,13 +89,7 @@
 
             <div class="mb-3">
               <a href="">
-                <span class="badge purple mr-1">Category 2</span>
-              </a>
-              <a href="">
-                <span class="badge blue mr-1">New</span>
-              </a>
-              <a href="">
-                <span class="badge red mr-1">Bestseller</span>
+                <span class="badge purple mr-1">{{ object.get_category_display }}</span>
               </a>
             </div>
 
@@ -123,7 +97,7 @@
               <span class="mr-1">
                 <del>$200</del>
               </span>
-              <span>$100</span>
+              <span>${{ object.price }}</span>
             </p>
 
             <p class="lead font-weight-bold">Description</p>
